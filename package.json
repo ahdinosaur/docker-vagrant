@@ -1,0 +1,14 @@
+{
+  "name": "docker-vagrant",
+  "version": "0.0.0",
+  "description": "vagrant within docker",
+  "main": "index.js",
+  "scripts": {
+    "build": "docker build -t ahdinosaur/vagrant .",
+    "vagrant": "docker run --rm -it -v /dev/vboxdrv:/dev/vboxdrv -v $HOME/.vagrant.d/:/root/.vagrant.d -v $(pwd):/data --workdir=/data ahdinosaur/vagrant",
+    "vagrant:up": "npm run vagrant -- up",
+    "push": "docker push ahdinosaur/vagrant"
+  },
+  "author": "Mikey <michael.williams@enspiral.com> (http://dinosaur.is)",
+  "license": "ISC"
+}
